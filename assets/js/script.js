@@ -1,6 +1,8 @@
-var searchformEl = $('#search-form');
+var rootEl = document.getElementById('root');
 
 function handleSearchFormSubmit(event) {
+    button = document.getElementById('submitBtn');
+    searchFormEl = document.getElementById('search-input');
     event.preventDefault();
     searchHistory();
 
@@ -51,7 +53,3 @@ function searchHistory() {
             oldSearch.remove();
     }
 }
-
-
-
-searchformEl.addEventListener('submit', handleSearchFormSubmit);
