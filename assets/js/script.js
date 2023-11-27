@@ -1,55 +1,9 @@
-var rootEl = document.getElementById('root');
-
-function handleSearchFormSubmit(event) {
-    button = document.getElementById('submitBtn');
-    searchFormEl = document.getElementById('search-input');
-    event.preventDefault();
-    searchHistory();
-
-    $('#search-input').val(localStorage.getItem)
-
-}
-
-function searchHistory() {
-    var searchParam = $('search-input');
-    var liEl = $('#search-history').children();
-    var recentSearch = liEl.first();
-    
-    var newItem = "<li><p>$(searchParam)</p></li>"
-
-    switch($('#search-history').children().length) {
-        case 0:
-            $('#search-history').append(newItem);
-            break;
-
-        case 1:
-            var secondSearch = liEl.children()[1].innerHTML;
-
-            recentSearch.before(newItem);
-            localStorage.setItem('search1', searchParam);
-            localStorage.setItem('search2', secondSearch);
-            break;
-        
-        case 2:
-            var secondSearch = liEl.children()[1].innerHTML;
-            var thirdSearch = liEl.children()[3].innerHTML;
-
-            recentSearch.before(newItem);
-            localStorage.setItem('search1', searchParam);
-            localStorage.setItem('search2', secondSearch);
-            localStorage.setItem('search3', thirdSearch);
-            break;
-
-        default:
-            var oldSearch = liEl.last();
-            var secondSearch = liEl.children()[1].innerHTML;
-            var thirdSearch = liEl.children()[3].innerHTML;
-
-            localStorage.setItem('search1', searchParam);
-            localStorage.setItem('search2', secondSearch);
-            localStorage.setItem('search3', thirdSearch);
-
-            recentSearch.before(newItem);
-            oldSearch.remove();
-    }
-}
+fetch(
+    'http://api.openweathermap.org/geo/1.0/direct?q=Orlando,FL,USA&limit=5&appid=2ee898c012e56cb36166d4a71be09113'
+)
+.then(function(response) {
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+})
