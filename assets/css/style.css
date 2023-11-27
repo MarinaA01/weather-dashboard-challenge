@@ -59,8 +59,13 @@ main {
     width: 75%;
 }
 
-section .card {
+.card-1 {
     border: 2px solid black;
     border-radius: 10px;
 
 }
+
+.card-1 h2 {
+    display: inline;
+}
+
