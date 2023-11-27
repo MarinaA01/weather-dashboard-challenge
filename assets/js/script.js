@@ -1,7 +1,3 @@
-fetch(
-    'api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0806a7d4dcf9a0279005b42384c3dda9'
-)
-
 var searchformEl = $('#search-form');
 
 function handleSearchFormSubmit(event) {
@@ -13,9 +9,47 @@ function handleSearchFormSubmit(event) {
 }
 
 function searchHistory() {
-    const task = $('#search-input').val();
-    const input = $(this).parent().attr('id');
-    localStorage.setItem(input, task);
+    var searchParam = $('search-input');
+    var liEl = $('#search-history').children();
+    var recentSearch = liEl.first();
+    
+    var newItem = "<li><p>$(searchParam)</p></li>"
+
+    switch($('#search-history').children().length) {
+        case 0:
+            $('#search-history').append(newItem);
+            break;
+
+        case 1:
+            var secondSearch = liEl.children()[1].innerHTML;
+
+            recentSearch.before(newItem);
+            localStorage.setItem('search1', searchParam);
+            localStorage.setItem('search2', secondSearch);
+            break;
+        
+        case 2:
+            var secondSearch = liEl.children()[1].innerHTML;
+            var thirdSearch = liEl.children()[3].innerHTML;
+
+            recentSearch.before(newItem);
+            localStorage.setItem('search1', searchParam);
+            localStorage.setItem('search2', secondSearch);
+            localStorage.setItem('search3', thirdSearch);
+            break;
+
+        default:
+            var oldSearch = liEl.last();
+            var secondSearch = liEl.children()[1].innerHTML;
+            var thirdSearch = liEl.children()[3].innerHTML;
+
+            localStorage.setItem('search1', searchParam);
+            localStorage.setItem('search2', secondSearch);
+            localStorage.setItem('search3', thirdSearch);
+
+            recentSearch.before(newItem);
+            oldSearch.remove();
+    }
 }
 
 
