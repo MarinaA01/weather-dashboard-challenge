@@ -15,3 +15,39 @@ body {
     position: sticky;
     text-align: right;
 }
+
+h2 {
+    width: 20%;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 20%;
+    margin-left: 10px;
+}
+
+#search-input {
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    background-color: #4f86f7;
+    color: lightgray;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #87cefa;
+    cursor: pointer;
+}
