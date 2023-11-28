@@ -34,7 +34,6 @@ function displayData() {
 function updateHistory(userInput) {
     var h3 = document.createElement('<h3>')
     localStorage.setItem('lastSearchedCity', userInput);
-    searchHistory.textContent = this.children().append(h3);
 
 }
 
@@ -48,11 +47,14 @@ function updateHistory(userInput) {
 button.addEventListener('click', function(event) {
     event.preventDefault();
 
-    localStorage.getItem(userInput, 'lastSearchedCity');
 
 
     fetchWeather();
     displayData();
     updateHistory();
+
+
+    h3.textContent = localStorage.getItem(userInput, 'lastSearchedCity');
+    searchHistory.children().append(h3);
         
 })
