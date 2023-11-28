@@ -1,29 +1,55 @@
 var searchHistory = document.getElementById('search-history');
-var searchFormEl = document.getElementById('search-form');
-let city = `Orlando`
-state = `FL`
-let country = `USA`;
-let lat = "lat";
-let lon = "lon";
-let key = `2ee898c012e56cb36166d4a71be09113`;
-let url = `api.openweathermap.org/data/2.5/forecast?q=${city},${state}&appid=${key}`
+var searchFormEl = document.getElementById('search-input');
+var button = document.getElementById('submitBtn');
+// let city = `Orlando`
+// state = `FL`
+// let country = `USA`;
+// let lat = "lat";
+// let lon = "lon";
 
-function fetchWeather() {
-    fetch(url)
-        .then(function(response){
-        return response.json;
-    })
-    .then(function(data) {
-    console.log(data);
-    })
-}
+button.addEventListener('click', function(event) {
+    var userInput = searchFormEl.value;
+    let key = `2ee898c012e56cb36166d4a71be09113`;
+    let url = `api.openweathermap.org/data/2.5/forecast?q=` + userInput;
+
+    function fetchWeather() {
+        fetch(url)
+            .then(function(response){
+            return response.json;
+        })
+        .then(function(data) {
+        console.log(data);
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+        })
+    }
+
+    function displayData() {
+        var tempEl = document.querySelector('.temp');
+        var dayEl = document.querySelector('#currentDay');
+        var dateEl = document.querySelector('.date');
+        var currentDate = dayjs()
+        tempEl.textContent = 'Temperature: ' + data.temperature;
+        dateEl.textContent = data.date;
+        dayEl.textContent = currentDate.format('MM/DD/YYYY');
 
 
-function display() {
-    localStorage.setItem(city, searchFormEl);
-    var h3 = document.createElement('h3');
-    searchHistory.innerHTML = localStorage.getItem(city);
-}
+        
+    }
 
-display();
-fetchWeather();
+    function updateHistory(userInput) {
+        var h3 = document.createElement('<h3>')
+        localStorage.setItem('lastSearchedCity', userInput);
+        searchHistory.textContent = this.children().append(h3);
+
+    }
+
+    localStorage.getItem(userInput, 'lastSearchedCity');
+
+
+    fetchWeather();
+    displayData();
+    updateHistory();
+        
+})
