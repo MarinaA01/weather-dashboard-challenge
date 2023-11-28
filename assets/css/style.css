@@ -62,10 +62,49 @@ main {
 .card-1 {
     border: 2px solid black;
     border-radius: 10px;
-
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
 }
 
 .card-1 h2 {
     display: inline;
+    margin-left: 20px;
+    padding: 0;
 }
 
+.card-1 p {
+    margin: 20px;
+}
+
+h3 {
+    margin-left: 10px;
+    margin-top: 30px;
+    font-weight: bolder;
+}
+
+.card-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: 250px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #000036;
+    color: white;
+    text-align: left;
+}
+
+.card p {
+    margin: 10px;
+}
+
+.date {
+    font-weight: bolder;
+}
