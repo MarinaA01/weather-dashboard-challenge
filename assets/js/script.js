@@ -27,10 +27,12 @@ function displayData(data) {
     var cityEl = document.querySelector('.card-title-1');
     var windEl = document.querySelector('.wind');
     var humidEl = document.querySelector('.humidity');
+    var today = document.getElementById('day-1');
     var currentDate = dayjs()
+    var today = 
     tempEl.textContent = 'Temperature: ' + data.temperature;
     dateEl.textContent = data.date;
-    cityEl.textContent = data.city;
+    cityEl.textContent = data.city.name;
     windEl.textContent = 'Wind: ' + data.wind;
     humidEl.textContent = 'Humidity: ' + data.humidity;
     dayEl.textContent = currentDate.format('MM/DD/YYYY');
