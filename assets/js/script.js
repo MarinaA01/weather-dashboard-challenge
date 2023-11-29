@@ -21,13 +21,15 @@ function fetchWeather() {
     })
 }
 
-function displayData() {
+function displayData(data) {
     var tempEl = document.querySelector('.temp');
     var dayEl = document.querySelector('#currentDay');
     var dateEl = document.querySelector('.date');
+    var cityEl = document.querySelector('.card-title-1');
     var currentDate = dayjs()
     tempEl.textContent = 'Temperature: ' + data.temperature;
     dateEl.textContent = data.date;
+    cityEl.textContent = data.name;
     dayEl.textContent = currentDate.format('MM/DD/YYYY');
 
 
@@ -53,7 +55,7 @@ button.addEventListener('click', function(event) {
 
 
     fetchWeather();
-    displayData(data);
+    displayData();
     updateHistory();
   
 
