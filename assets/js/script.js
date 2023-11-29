@@ -3,7 +3,7 @@ var searchFormEl = document.getElementById('search-input');
 var button = document.getElementById('submitBtn');
 var userInput = searchFormEl.value;
 let key = `2ee898c012e56cb36166d4a71be09113`;
-let url = `https://api.openweathermap.org/data/2.5/forecast?q=` + userInput;
+let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${key}`;
 
 function fetchWeather() {
     fetch(url)
