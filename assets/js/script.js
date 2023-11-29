@@ -1,17 +1,20 @@
 var searchHistory = document.getElementById('search-history');
 var searchFormEl = document.getElementById('search-input');
 var button = document.getElementById('submitBtn');
-var userInput = searchFormEl.value;
-let key = `2ee898c012e56cb36166d4a71be09113`;
-let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${key}`;
 
 function fetchWeather() {
+    var userInput = searchFormEl.value;
+    let key = `2ee898c012e56cb36166d4a71be09113`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${key}`;
+
     fetch(url)
         .then(function(response){
-        return response.json;
+        return response.json();
     })
     .then(function(data) {
     console.log(data);
+    displayData(data);
+    updateHistory();
     })
     .catch(function(error) {
         console.error('Error:', error);
@@ -50,8 +53,9 @@ button.addEventListener('click', function(event) {
 
 
     fetchWeather();
-    displayData();
+    displayData(data);
     updateHistory();
+  
 
 
     h3.textContent = localStorage.getItem(userInput, 'lastSearchedCity');
