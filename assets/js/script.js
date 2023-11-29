@@ -55,8 +55,6 @@ button.addEventListener('click', function(event) {
 
 
     fetchWeather();
-    displayData();
-    updateHistory();
   
 
 
