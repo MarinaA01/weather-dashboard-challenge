@@ -1,5 +1,7 @@
 # weather-dashboard-challenge
 
+https://marinaa01.github.io/weather-dashboard-challenge/
+
 ## Description
 
 This application was created for someone who is going on a trip and just needs a simple five day forecast and current weather to plan their trip accordingly. I built this project because I wanted to learn more about APIs and since I travel a lot, it will definitely be put to good use. It's a simple app that just provides the need-to-know information without all the other things not needed for planning a quick trip. I learned lots about fetching data from APIs, as well as lots about JavaScript again.
