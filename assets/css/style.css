@@ -16,6 +16,10 @@ body {
     text-align: right;
 }
 
+h1 {
+    width: 65%;
+}
+
 h2 {
     width: 20%;
     margin-left: 10px;
