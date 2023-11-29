@@ -14,7 +14,6 @@ function fetchWeather() {
     .then(function(data) {
     console.log(data);
     displayData(data);
-    updateHistory();
     })
     .catch(function(error) {
         console.error('Error:', error);
@@ -26,10 +25,14 @@ function displayData(data) {
     var dayEl = document.querySelector('#currentDay');
     var dateEl = document.querySelector('.date');
     var cityEl = document.querySelector('.card-title-1');
+    var windEl = document.querySelector('.wind');
+    var humidEl = document.querySelector('.humidity');
     var currentDate = dayjs()
     tempEl.textContent = 'Temperature: ' + data.temperature;
     dateEl.textContent = data.date;
-    cityEl.textContent = data.name;
+    cityEl.textContent = data.city;
+    windEl.textContent = 'Wind: ' + data.wind;
+    humidEl.textContent = 'Humidity: ' + data.humidity;
     dayEl.textContent = currentDate.format('MM/DD/YYYY');
 
 
@@ -37,17 +40,12 @@ function displayData(data) {
 }
 
 function updateHistory(userInput) {
-    var h3 = document.createElement('<h3>')
+    var h3 = document.createElement('h3')
     localStorage.setItem('lastSearchedCity', userInput);
+    searchHistory.appendChild(h3);
+    h3.textContent = localStorage.getItem(userInput, 'lastSearchedCity');
 
 }
-
-
-// let city = `Orlando`
-// state = `FL`
-// let country = `USA`;
-// let lat = "lat";
-// let lon = "lon";
 
 button.addEventListener('click', function(event) {
     event.preventDefault();
@@ -55,10 +53,10 @@ button.addEventListener('click', function(event) {
 
 
     fetchWeather();
+    updateHistory();
   
 
 
-    h3.textContent = localStorage.getItem(userInput, 'lastSearchedCity');
-    searchHistory.children().append(h3);
+    
         
 })
