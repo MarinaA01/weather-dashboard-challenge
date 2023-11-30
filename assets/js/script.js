@@ -5,7 +5,7 @@ var button = document.getElementById('submitBtn');
 function fetchWeather() {
     var userInput = searchFormEl.value;
     let key = `2ee898c012e56cb36166d4a71be09113`;
-    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${key}`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${userInput}&appid=${key}&units=imperial`;
 
     fetch(url)
         .then(function(response){
@@ -30,7 +30,7 @@ function displayData(data) {
     var iconEl = document.querySelector('.icon');
     var today = document.getElementById('day-1');
     var currentDate = dayjs()
-    tempEl.textContent = 'Temperature: ' + data.list[0].main.temp;
+    tempEl.textContent = 'Temperature: ' + data.list[0].main.temp + '\u00B0F';
     dateEl.textContent = data.date;
     cityEl.textContent = data.city.name;
     iconEl.innerHTML = data.list[0].weather[0].icon;
