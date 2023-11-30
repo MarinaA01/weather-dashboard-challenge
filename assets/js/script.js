@@ -43,7 +43,7 @@ function displayData(data) {
 }
 
 function updateHistory(userInput) {
-    var h3 = document.createElement('h3')
+    var h3 = document.getElementById('lastSearch');
     localStorage.setItem('lastSearchedCity', userInput);
     searchHistory.appendChild(h3);
     h3.textContent = localStorage.getItem(userInput, 'lastSearchedCity');
