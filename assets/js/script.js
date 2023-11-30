@@ -28,15 +28,18 @@ function displayData(data) {
     var windEl = document.querySelector('.wind');
     var humidEl = document.querySelector('.humidity');
     var iconEl = document.querySelector('.icon');
-    var today = document.getElementById('day-1');
     var currentDate = dayjs()
-    tempEl.textContent = 'Temperature: ' + data.list[0].main.temp + '\u00B0F';
     dateEl.textContent = data.date;
+    tempEl.textContent = 'Temp: ' + data.list[0].main.temp + '\u00B0F';
     cityEl.textContent = data.city.name;
     iconEl.innerHTML = data.list[0].weather[0].icon;
-    windEl.textContent = 'Wind: ' + data.list[0].main.wind;
+    windEl.textContent = 'Wind: ' + data.list[0].wind.speed + 'MPH';
     humidEl.textContent = 'Humidity: ' + data.list[0].main.humidity + '%';
     dayEl.textContent = currentDate.format('MM/DD/YYYY');
+
+    tomorrow = document.getElementById('day-1');
+    tomorrowsDate = currentDate.add(1, 'day');
+    tomorrow.textContent = tomorrowsDate.format('MM/DD/YYYY');
 
 
     
