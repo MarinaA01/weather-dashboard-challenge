@@ -27,14 +27,15 @@ function displayData(data) {
     var cityEl = document.querySelector('.card-title-1');
     var windEl = document.querySelector('.wind');
     var humidEl = document.querySelector('.humidity');
+    var iconEl = document.querySelector('.icon');
     var today = document.getElementById('day-1');
     var currentDate = dayjs()
-    var today = 
-    tempEl.textContent = 'Temperature: ' + data.temperature;
+    tempEl.textContent = 'Temperature: ' + data.list[0].main.temp;
     dateEl.textContent = data.date;
     cityEl.textContent = data.city.name;
-    windEl.textContent = 'Wind: ' + data.wind;
-    humidEl.textContent = 'Humidity: ' + data.humidity;
+    iconEl.innerHTML = data.list[0].weather[0].icon;
+    windEl.textContent = 'Wind: ' + data.list[0].main.wind;
+    humidEl.textContent = 'Humidity: ' + data.list[0].main.humidity + '%';
     dayEl.textContent = currentDate.format('MM/DD/YYYY');
 
 
