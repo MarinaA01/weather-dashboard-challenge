@@ -102,6 +102,7 @@ main {
     flex-direction: column;
     background-color: #000036;
     color: white;
+    border-radius: 10px;
     text-align: left;
 }
 
